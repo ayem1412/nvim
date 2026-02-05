@@ -3,6 +3,20 @@ if not ok then
 	return vim.notify('COULD NOT LOAD MLSP', vim.log.levels.ERROR, { title = 'MLSP' })
 end
 
+local on_attach_ok, on_attach = pcall(require, 'xibe.lsp.utils.on_attach')
+if not on_attach_ok then
+	return vim.notify('COULD NOT LOAD ON_ATTACH', vim.log.levels.ERROR, { title = 'ON_ATTACH' })
+end
+
+local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+if not cmp_nvim_lsp_ok then
+	return vim.notify(
+		'COULD NOT LOAD CMP_NVIM_LSP',
+		vim.log.levels.ERROR,
+		{ title = 'CMP_NVIM_LSP' }
+	)
+end
+
 local ensure_installed = {
 	'css_variables',
 	'cssls',
@@ -14,61 +28,26 @@ local ensure_installed = {
 	'vue_ls',
 }
 
-local exclude = {
-	'vtsls',
-}
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-vim.lsp.config('*', {
-	capabilities = capabilities,
-})
-
--- FOR SOME REASON VTSLS NEEDS TO BE CONFIGURED LIKE THIS INSTEAD OF /lsp DIR
-local vue_language_server_path = vim.fn.expand '$MASON/packages'
-	.. '/vue-language-server'
-	.. '/node_modules/@vue/language-server'
-local vue_plugin = {
-	name = '@vue/typescript-plugin',
-	location = vue_language_server_path,
-	languages = { 'vue' },
-	configNamespace = 'typescript',
-}
-
-vim.lsp.config('vtsls', {
-	settings = {
-		vtsls = {
-			tsserver = {
-				globalPlugins = {
-					vue_plugin,
-				},
-			},
-		},
-	},
-	on_attach = function(client)
-		local existing_capabilities = client.server_capabilities
-		if vim.bo.filetype == 'vue' then
-			existing_capabilities.semanticTokensProvider.full = false
-		else
-			existing_capabilities.semanticTokensProvider.full = true
-		end
-	end,
-	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-})
-
-vim.lsp.enable 'vtsls'
+local excluded_servers = {}
 
 mlsp.setup {
 	ensure_installed = ensure_installed,
-	automatic_enable = { exclude = exclude },
+	automatic_enable = false,
 }
 
-local keymap = vim.keymap
-local opts = { silent = true, remap = true }
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
-keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
-keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
-keymap.set('n', '<leader>dm', vim.diagnostic.open_float, opts)
+local server_opts = {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
+
+for _, server in ipairs(mlsp.get_installed_servers()) do
+	if not vim.tbl_contains(excluded_servers, server) then
+		local server_ok, opts = pcall(require, 'xibe.lsp.configs.' .. server)
+		if server_ok then server_opts = vim.tbl_deep_extend('force', opts, server_opts) end
+
+		vim.lsp.config(server, server_opts)
+		vim.lsp.enable(server)
+	end
+end
