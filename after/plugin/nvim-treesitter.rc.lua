@@ -19,6 +19,7 @@ local ensure_installed = {
 	'powershell',
 	'properties',
 	'regex',
+	'rust',
 	'tmux',
 	'todotxt',
 	'toml',

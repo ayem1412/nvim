@@ -27,5 +27,11 @@ return {
 			existing_capabilities.semanticTokensProvider.full = true
 		end
 	end,
-	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+	filetypes = {
+		-- 'typescript',
+		-- 'javascript',
+		-- 'javascriptreact',
+		-- 'typescriptreact',
+		'vue',
+	},
 }

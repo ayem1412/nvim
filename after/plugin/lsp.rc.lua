@@ -23,7 +23,9 @@ local ensure_installed = {
 	'cssmodules_ls',
 	'html',
 	'lua_ls',
+	'rust_analyzer',
 	'tailwindcss',
+	'ts_ls',
 	'vtsls',
 	'vue_ls',
 }
