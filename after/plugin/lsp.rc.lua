@@ -39,12 +39,12 @@ mlsp.setup {
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-local server_opts = {
-	on_attach = on_attach,
-	capabilities = capabilities,
-}
-
 for _, server in ipairs(mlsp.get_installed_servers()) do
+	local server_opts = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
+
 	if not vim.tbl_contains(excluded_servers, server) then
 		local server_ok, opts = pcall(require, 'xibe.lsp.configs.' .. server)
 		if server_ok then server_opts = vim.tbl_deep_extend('force', opts, server_opts) end
