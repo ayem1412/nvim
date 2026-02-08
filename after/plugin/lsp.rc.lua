@@ -22,6 +22,7 @@ local ensure_installed = {
 	'cssls',
 	'cssmodules_ls',
 	'html',
+	'jsonls',
 	'lua_ls',
 	'rust_analyzer',
 	'tailwindcss',
