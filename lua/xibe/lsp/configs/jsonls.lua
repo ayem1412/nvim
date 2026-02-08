@@ -13,7 +13,7 @@ return {
 	settings = {
 		json = {
 			schemas = schemas,
-			validate = { enable = true }
+			validate = { enable = true },
 		},
-	}
+	},
 }
