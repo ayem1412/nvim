@@ -7,6 +7,10 @@ local schemas = {
 		fileMatch = { 'tsconfig.json', 'tsconfig.*.json', 'jsconfig.json', 'jsconfig.*.json' },
 		url = 'https://www.schemastore.org/tsconfig.json',
 	},
+	{
+		fileMatch = { '.prettierrc', '.prettierrc.json' },
+		url = 'https://www.schemastore.org/prettierrc.json',
+	},
 }
 
 return {
