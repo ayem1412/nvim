@@ -28,10 +28,10 @@ return {
 		end
 	end,
 	filetypes = {
-		--[[ 'typescript',
+		'typescript',
 		'javascript',
 		'javascriptreact',
-		'typescriptreact', ]]
+		'typescriptreact',
 		'vue',
 	},
 }

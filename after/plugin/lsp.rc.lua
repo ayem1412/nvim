@@ -31,7 +31,9 @@ local ensure_installed = {
 	'vue_ls',
 }
 
-local excluded_servers = {}
+local excluded_servers = {
+	'ts_ls',
+}
 
 mlsp.setup {
 	ensure_installed = ensure_installed,
