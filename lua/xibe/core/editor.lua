@@ -2,8 +2,6 @@ local opt = vim.opt
 
 opt.guicursor = 'n-v-c-i:block'
 
-opt.termguicolors = true
-
 opt.number = true
 opt.relativenumber = true
 
@@ -18,11 +16,4 @@ opt.listchars:append {
 	lead = space,
 	trail = space,
 	nbsp = space,
-}
-
-vim.filetype.add {
-	pattern = {
-		['%.env.*'] = 'sh',
-		['%.env'] = 'sh',
-	},
 }
