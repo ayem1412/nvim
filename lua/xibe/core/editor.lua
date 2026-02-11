@@ -19,3 +19,10 @@ opt.listchars:append {
 	trail = space,
 	nbsp = space,
 }
+
+vim.filetype.add {
+	pattern = {
+		['%.env.*'] = 'sh',
+		['%.env'] = 'sh',
+	},
+}
