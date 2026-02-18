@@ -5,8 +5,9 @@ opt.guicursor = 'n-v-c-i:block'
 opt.number = true
 opt.relativenumber = true
 
-opt.colorcolumn = '100'
 opt.signcolumn = 'yes'
+
+opt.colorcolumn = '120'
 
 local space = '·'
 opt.list = true
