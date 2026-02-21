@@ -9,6 +9,7 @@ local ensure_installed = {
 	'editorconfig',
 	'gitignore',
 	'html',
+	'hyprlang',
 	'java',
 	'javadoc',
 	'javascript',
