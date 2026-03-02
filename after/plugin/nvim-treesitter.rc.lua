@@ -21,6 +21,7 @@ local ensure_installed = {
 	'properties',
 	'regex',
 	'rust',
+	'sql',
 	'tmux',
 	'todotxt',
 	'toml',

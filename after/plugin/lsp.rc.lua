@@ -26,6 +26,7 @@ local ensure_installed = {
 	'jsonls',
 	'lua_ls',
 	'rust_analyzer',
+	'sqls',
 	'tailwindcss',
 	'taplo',
 	'ts_ls',
