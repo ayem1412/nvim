@@ -24,6 +24,7 @@ local ensure_installed = {
 	'html',
 	'hyprls',
 	'jsonls',
+	'lemminx',
 	'lua_ls',
 	'rust_analyzer',
 	'sqls',
