@@ -33,6 +33,7 @@ local ensure_installed = {
 	'ts_ls',
 	'vtsls',
 	'vue_ls',
+	'yamlls',
 }
 
 local excluded_servers = {
