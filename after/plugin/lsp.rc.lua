@@ -18,6 +18,7 @@ if not cmp_nvim_lsp_ok then
 end
 
 local ensure_installed = {
+	'bashls',
 	'css_variables',
 	'cssls',
 	'cssmodules_ls',
