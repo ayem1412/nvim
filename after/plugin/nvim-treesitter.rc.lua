@@ -27,6 +27,7 @@ local ensure_installed = {
 	'todotxt',
 	'toml',
 	'tsx',
+	'twig',
 	'typescript',
 	'vim',
 	'vimdoc',
