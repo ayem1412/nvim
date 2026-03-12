@@ -24,10 +24,10 @@ local ensure_installed = {
 	'cssmodules_ls',
 	'html',
 	'hyprls',
+	'intelephense',
 	'jsonls',
 	'lemminx',
 	'lua_ls',
-	'phpactor',
 	'rust_analyzer',
 	'sqls',
 	'tailwindcss',
@@ -37,6 +37,7 @@ local ensure_installed = {
 	'vtsls',
 	'vue_ls',
 	'yamlls',
+	-- 'phpactor',
 }
 
 local excluded_servers = {
