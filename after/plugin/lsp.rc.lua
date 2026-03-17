@@ -22,6 +22,8 @@ local ensure_installed = {
 	'css_variables',
 	'cssls',
 	'cssmodules_ls',
+	'docker_compose_language_service',
+	'dockerls',
 	'html',
 	'hyprls',
 	'intelephense',

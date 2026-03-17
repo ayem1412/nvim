@@ -18,6 +18,7 @@ local ensure_installed = {
 	'bash',
 	'comment',
 	'css',
+	'dockerfile',
 	'editorconfig',
 	'gitignore',
 	'html',
