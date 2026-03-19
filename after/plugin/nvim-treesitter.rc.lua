@@ -12,9 +12,7 @@ if not ok_install then
 	)
 end
 
-if vim.fn.has('win32') == 1 then
-	install.compilers = { 'zig' }
-end
+if vim.fn.has 'win32' == 1 then install.compilers = { 'zig' } end
 
 local ensure_installed = {
 	'bash',
