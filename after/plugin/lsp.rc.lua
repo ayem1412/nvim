@@ -43,6 +43,7 @@ local ensure_installed = {
 }
 
 local excluded_servers = {
+	'rust_analyzer',
 	'ts_ls',
 }
 
