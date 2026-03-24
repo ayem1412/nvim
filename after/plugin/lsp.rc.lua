@@ -27,6 +27,7 @@ local ensure_installed = {
 	'html',
 	'hyprls',
 	'intelephense',
+	'jdtls',
 	'jsonls',
 	'lemminx',
 	'lua_ls',
@@ -43,6 +44,7 @@ local ensure_installed = {
 }
 
 local excluded_servers = {
+	-- 'jdtls',
 	'rust_analyzer',
 	'ts_ls',
 }

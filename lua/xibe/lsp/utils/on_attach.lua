@@ -10,6 +10,6 @@ return function(_, bufnr)
 	keymap.set({ 'n', 'v' }, '<leader>ca', '<CMD>Lspsaga code_action<CR>', opts)
 	keymap.set('n', '<leader>rn', '<CMD>Lspsaga rename<CR>', opts)
 	keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
-	keymap.set('n', '<leader>dm', '<CMD>Lspsaga diagnostic_jump_next<CR>', opts)
+	keymap.set('n', '<leader>dm', '<CMD>Lspsaga show_line_diagnostics<CR>', opts)
 	keymap.set('n', '<leader>dp', '<CMD>Lspsaga diagnostic_jump_prev<CR>', opts)
 end
