@@ -27,7 +27,7 @@ local ensure_installed = {
 	'html',
 	'hyprls',
 	'intelephense',
-	'jdtls',
+	-- 'jdtls',
 	'jsonls',
 	'lemminx',
 	'lua_ls',
