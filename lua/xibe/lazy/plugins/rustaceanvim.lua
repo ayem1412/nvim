@@ -24,12 +24,7 @@ return {
 						function() vim.cmd.RustLsp { 'explainError', 'current' } end,
 						opts
 					)
-					keymap.set(
-						'n',
-						'<leader>dm',
-						function() vim.cmd.RustLsp { 'renderDiagnostic', 'current' } end,
-						opts
-					)
+					keymap.set('n', '<leader>dm', '<CMD>Lspsaga show_line_diagnostics<CR>', opts)
 					keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 					keymap.set('n', '<leader>rn', '<CMD>Lspsaga rename<CR>', opts)
 					keymap.set('n', '<leader>gr', vim.lsp.buf.references, opts)
