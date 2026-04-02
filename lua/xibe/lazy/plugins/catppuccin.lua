@@ -14,5 +14,5 @@ return {
 			}
 		end,
 	},
-	config = function() vim.cmd.colorscheme 'catppuccin-mocha' end,
+	init = function() vim.cmd.colorscheme 'catppuccin-mocha' end,
 }
