@@ -1,6 +1,10 @@
-local ok, configs = pcall(require, 'nvim-treesitter.configs')
+local ok, treesitter = pcall(require, 'nvim-treesitter')
 if not ok then
-	return vim.notify('COULD NOT LOAD CONFIGS', vim.log.levels.ERROR, { title = 'CONFIGS' })
+	return vim.notify(
+		'COULD NOT LOAD NVIM-TREESITTER',
+		vim.log.levels.ERROR,
+		{ title = 'NVIM-TREESITTER' }
+	)
 end
 
 local ok_install, install = pcall(require, 'nvim-treesitter.install')
@@ -52,10 +56,23 @@ local ensure_installed = {
 	'yaml',
 }
 
-configs.setup {
+treesitter.setup {
+	install_dir = vim.fn.stdpath 'data' .. '/site',
+}
+
+treesitter.install = ensure_installed
+
+pcall(vim.treesitter.start)
+
+--[[ vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo[0][0].foldmethod = 'expr' ]]
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+--[[ treesitter.setup {
 	ensure_installed = ensure_installed,
 	sync_install = false,
 	auto_install = false,
 	indent = { enable = true },
 	highlight = { enable = true },
-}
+} ]]
