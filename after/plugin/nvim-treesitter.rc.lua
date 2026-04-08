@@ -7,17 +7,6 @@ if not ok then
 	)
 end
 
-local ok_install, install = pcall(require, 'nvim-treesitter.install')
-if not ok_install then
-	return vim.notify(
-		'COULD NOT LOAD NVIM-TREESITTER.INSTALL',
-		vim.log.levels.ERROR,
-		{ title = 'NVIM-TREESITTER.INSTALL' }
-	)
-end
-
-if vim.fn.has 'win32' == 1 then install.compilers = { 'zig' } end
-
 local ensure_installed = {
 	'bash',
 	'comment',
